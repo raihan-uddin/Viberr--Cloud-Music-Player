@@ -5,6 +5,7 @@
 
     <body>
         {% if all_albums %}
+            <h3>Here are all my Albums</h3>
             <ul>
                 {% for album in all_albums %}
                 <li><a href="/music/{{ album.id }}/">{{ album.albm_title }}</a></li>

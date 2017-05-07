@@ -1,15 +1,16 @@
 from django.http import HttpResponse
-from django.template import loader
+# from django.template import loader
+from django.shortcuts import render
 from .models import Album
 
 
 def index(request):
     all_albums = Album.objects.all()
-    template = loader.get_template('music/index.html')
-    contex = {
-        'all_albums': all_albums,
-    }
-    return HttpResponse(template.render(contex, request))
+    # template = loader.get_template('music/index.html')
+    contex = {'all_albums': all_albums}
+
+    return render(request, 'music/index.html', contex)
+    # return HttpResponse(template.render(contex, request))
 
 
 def detail(request, album_id):
