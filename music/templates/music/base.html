@@ -31,7 +31,7 @@
             <!-- Items -->
             <div class="collapse navbar-collapse" id="topNavBar">
                 <ul class="nav navbar-nav">
-                    <li class="active">
+                    <li class="{% block  albums_active %}active{% endblock %}">
                         <a href="{% url 'music:index' %}">
                             <span class="glyphicon glyphicon-cd" aria-hidden="true"></span>&nbsp;Albums
                         </a>
