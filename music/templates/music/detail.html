@@ -39,8 +39,13 @@
             <td>1</td>
             <td>{{ song.song_title  }}</td>
             <td><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-play"></span>&nbsp;Play</button></td>
-            <td>{% if song.is_favorite %}<img src="http://i.imgur.com/b9b13Rd.png" />{% endif %}</td>
-            <td><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>Delete</button></td>
+            <td>
+                {% if song.is_favorite %}
+                    <a href="#" ><span class="glyphicon glyphicon-star"></span></a>
+                {% else %}
+                    <a href="#"><span class="glyphicon glyphicon-star-empty "></span></a>
+                {% endif %}</td>
+            <td><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;Delete</button></td>
           </tr>
         {% endfor %}
         </tbody>
