@@ -25,7 +25,7 @@ After an album is created you will then be able to add/upload songs. Currently s
 
 Once songs are added to an album you are then able to play, favorite, and delete them.
 
-![](https://github.com/theprogrammingthinker/Django-Practice/blob/master/screenshot/details.png)
+![](https://github.com/theprogrammingthinker/Viberr--Cloud-Music-Player/blob/bootstrap_design/screenshot/details.png?raw=true)
 
 ## Searching
 
