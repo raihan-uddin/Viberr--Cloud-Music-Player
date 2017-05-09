@@ -7,7 +7,7 @@ Personal Practice
 
 Viberr is an application that let's you upload, store, and play all of your music from the cloud. You can now manage and listen to your music from any device, anywhere in the world. 
 
-![](http://i.imgur.com/9Ix2CbR.png)
+![](https://github.com/theprogrammingthinker/Django-Practice/blob/master/screenshot/homepage.png)
 
 ## How does it work?
 
@@ -25,7 +25,7 @@ After an album is created you will then be able to add/upload songs. Currently s
 
 Once songs are added to an album you are then able to play, favorite, and delete them.
 
-![](http://i.imgur.com/ggcgbz0.png)
+![](https://github.com/theprogrammingthinker/Django-Practice/blob/master/screenshot/details.png)
 
 ## Searching
 
