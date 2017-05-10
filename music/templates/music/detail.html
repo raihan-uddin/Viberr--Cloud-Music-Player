@@ -1,33 +1,57 @@
 {% extends 'music/base.html' %}
-{% block title %}Album Details{% endblock %}<
+{% block title %}Album Details{% endblock %}
+
 {% block body %}
-    <img src="{{ album.alb_logo }}">
-    <h1>{{ album.albm_title }}</h1>
-    <h3>{{ album.artist }}</h3>
+<div class="container-fluid">
+    <div class="row content" >
+      <div class="col-xs-6 col-md-3" style="z-index: 1;" >
+        <div class="thumbnail" style="max-height: 600px; max-width: 250px;">
+          <img src="{{ album.alb_logo }}" alt="{{ album.albm_title }}">
+          <div class="caption">
+                <h3>{{ album.albm_title }} &nbsp; <span style="color: rgba(24,16,21,0.45)">{{ album.gener }}</span></h3>
+                <h4>{{ album.artist }}</h4>
+          </div>
+        </div>
+      </div>
 
-{#    <ul>#}
-{#        {% for song in album.song_set.all %}#}
-{#        <li>{{ song.song_title }} - {{ song.file_type }}</li>#}
-{#        {% endfor %}#}
-{#    </ul>#}
+    <div class="col-sm-9" style="margin-bottom: 10px;">
+        <button class="btn btn-primary" type="button">View All</button>&nbsp;&nbsp;&nbsp;&nbsp;
+        <a href="#">Add New Song</a>
+    </div>
 
-    {% if error_message  %}
-        <p><strong>{{ error_message }}</strong></p>
-    {% endif %}
-
-    <form action="{% url 'music:favorite' album.id %}" method="post" >
-        {% csrf_token %}
+    <div class="container col-sm-9" style="background: white">
+      <h2>All song</h2>
+    {#  <p>The .table-responsive class creates a responsive table which will scroll horizontally on small devices (under 768px). When viewing on anything larger than 768px wide, there is no difference:</p>#}
+      <div class="table-responsive">
+      <table class="table table-hover table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Title</th>
+            <th>Audio File</th>
+            <th>Favorite</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
         {% for song in album.song_set.all %}
-            <input type="radio" id="song{{ forloop.counter }}" name="song" value="{{ song.id }}">
-            <label for="song{{ forloop.counter }}">
-                {{ song.song_title }}
-
-                {% if song.is_favorite  %}
-                    <img src="https://goo.gl/KZzupZ">
-                {% endif %}
-            </label>
-            <br>
+          <tr>
+            <td>1</td>
+            <td>{{ song.song_title  }}</td>
+            <td><button type="button" class="btn btn-success"><span class="glyphicon glyphicon-play"></span>&nbsp;Play</button></td>
+            <td>
+                {% if song.is_favorite %}
+                    <a href="#" ><span class="glyphicon glyphicon-star"></span></a>
+                {% else %}
+                    <a href="#"><span class="glyphicon glyphicon-star-empty "></span></a>
+                {% endif %}</td>
+            <td><button type="button" class="btn btn-danger"><span class="glyphicon glyphicon-remove"></span>&nbsp;Delete</button></td>
+          </tr>
         {% endfor %}
-    <input type="submit" value="Favorite">
-    </form>
+        </tbody>
+      </table>
+      </div>
+    </div>
+    </div>
+</div>
 {% endblock %}
